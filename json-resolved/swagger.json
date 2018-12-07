@@ -359,7 +359,7 @@
     },
     "Buglog" : {
       "type" : "array",
-      "description" : "The whole bug log",
+      "description" : "an array of emails",
       "items" : {
         "$ref" : "#/definitions/Buglog_inner"
       }
@@ -390,7 +390,8 @@
           "type" : "string",
           "description" : "the email body"
         }
-      }
+      },
+      "description" : "an email split in header and body"
     }
   },
   "externalDocs" : {
