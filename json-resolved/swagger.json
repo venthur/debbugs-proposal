@@ -38,6 +38,8 @@
     "/status" : {
       "get" : {
         "summary" : "Get status of given bugs",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
         "parameters" : [ {
           "in" : "body",
           "name" : "body",
@@ -49,7 +51,18 @@
               "type" : "integer"
             }
           }
-        } ]
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status of the given bugs",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Status"
+              }
+            }
+          }
+        }
       }
     },
     "/pet" : {
@@ -664,6 +677,21 @@
     }
   },
   "definitions" : {
+    "Status" : {
+      "type" : "object",
+      "properties" : {
+        "bug_number" : {
+          "type" : "integer"
+        },
+        "severity" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "severity" : "severity",
+        "bug_number" : 0
+      }
+    },
     "Order" : {
       "type" : "object",
       "properties" : {
