@@ -100,6 +100,29 @@
           }
         }
       }
+    },
+    "/latest/{amount}" : {
+      "get" : {
+        "summary" : "Get list of latest bugs",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "amount",
+          "in" : "path",
+          "description" : "Number of bugs",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of bugnumbers",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions" : {
