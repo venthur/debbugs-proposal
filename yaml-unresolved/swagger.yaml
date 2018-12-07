@@ -55,7 +55,7 @@ paths:
               type: integer
   /usertags:
     get:
-      summary: Get bugs taggedby that email. All of them or only those tagged with the selected tags.
+      summary: Get bugs tagged by that email. All of them or only those tagged with the selected tags.
       consumes:
       - application/json
       produces:
@@ -193,7 +193,7 @@ definitions:
         description: date of last update
       done:
         type: string
-        description: maintainer who closed the bug
+        description: maintainer who closed the bug or empty if not closed
       archived:
         type: boolean
         description: the bug is archived
