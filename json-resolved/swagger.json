@@ -255,6 +255,16 @@
         },
         "owner" : {
           "type" : "string"
+        },
+        "bugs" : {
+          "type" : "string"
+        },
+        "affects" : {
+          "type" : "string"
+        },
+        "archive" : {
+          "type" : "string",
+          "enum" : [ "both" ]
         }
       },
       "description" : "Filter conditions",
@@ -262,9 +272,12 @@
         "severity" : { },
         "owner" : "owner",
         "submitter" : "submitter",
+        "bugs" : "bugs",
         "package" : "package",
         "src" : "src",
         "maint" : "maint",
+        "affects" : "affects",
+        "archive" : "both",
         "tag" : "tag",
         "status" : "open"
       }
