@@ -130,23 +130,95 @@
         "unarchived" : {
           "type" : "boolean",
           "description" : "the bug has been unarchived and can be archived again"
+        },
+        "fixed_versions" : {
+          "type" : "array",
+          "description" : "version numbers",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "found_versions" : {
+          "type" : "array",
+          "description" : "version numbers",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "forwarded" : {
+          "type" : "string",
+          "description" : "an URL or email address"
+        },
+        "blocks" : {
+          "type" : "array",
+          "description" : "list of bugnumbers this report blocks",
+          "items" : {
+            "type" : "integer"
+          }
+        },
+        "blockedby" : {
+          "type" : "array",
+          "description" : "list of bugnumbers this report is blocked by",
+          "items" : {
+            "type" : "integer"
+          }
+        },
+        "pending" : {
+          "type" : "string",
+          "description" : "either pending or done",
+          "enum" : [ "pending", "done" ]
+        },
+        "msgid" : {
+          "type" : "string",
+          "description" : "message ID of the bugreport"
+        },
+        "owner" : {
+          "type" : "string",
+          "description" : "default empty, otherwise who is responsible for fixing"
+        },
+        "location" : {
+          "type" : "string",
+          "description" : "always db-h or archive",
+          "enum" : [ "db-h", "archive" ]
+        },
+        "affects" : {
+          "type" : "array",
+          "description" : "package names, see affects in control-BTS manual",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "summary" : {
+          "type" : "string",
+          "description" : "null"
         }
       },
       "description" : "Status of a bugreport",
       "example" : {
         "severity" : "critical",
         "date" : "2000-01-23T04:56:07.000+00:00",
+        "owner" : "owner",
+        "summary" : "summary",
         "package" : "package",
         "subject" : "subject",
+        "blocks" : [ 1, 1 ],
+        "pending" : "pending",
+        "msgid" : "msgid",
+        "affects" : [ "affects", "affects" ],
         "originator" : "originator",
         "source" : "source",
+        "blockedby" : [ 5, 5 ],
         "mergedwith" : [ 6, 6 ],
         "done" : "done",
+        "forwarded" : "forwarded",
         "tags" : [ "tags", "tags" ],
         "unarchived" : true,
         "bug_number" : 0,
         "archived" : true,
-        "log_modified" : "2000-01-23T04:56:07.000+00:00"
+        "log_modified" : "2000-01-23T04:56:07.000+00:00",
+        "fixed_versions" : [ "fixed_versions", "fixed_versions" ],
+        "location" : "db-h",
+        "found_versions" : [ "found_versions", "found_versions" ]
       }
     }
   },
