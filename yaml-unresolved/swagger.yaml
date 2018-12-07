@@ -19,7 +19,7 @@ paths:
       parameters:
       - in: body
         name: body
-        description: List of bug numbers
+        description: List of bug numbers as
         required: true
         schema:
           type: array
