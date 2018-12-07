@@ -19,7 +19,7 @@ paths:
       parameters:
       - in: body
         name: body
-        description: List of bug numbers as
+        description: List of bug numbers
         required: true
         schema:
           type: array
@@ -193,7 +193,7 @@ definitions:
         description: date of last update
       done:
         type: string
-        description: maintainer who closed the string
+        description: maintainer who closed the bug
       archived:
         type: boolean
         description: the bug is archived
