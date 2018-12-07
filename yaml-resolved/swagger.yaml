@@ -4,8 +4,6 @@ info:
   description: "API for [Debian's Bugtracker](https://bugs.debian.org).\n"
   version: "1.0.0"
   title: "Debbugs API"
-  contact:
-    email: "apiteam@swagger.io"
 host: "virtserver.swaggerhub.com"
 basePath: "/venthur/debbugs/1.0.0"
 schemes:
