@@ -143,6 +143,32 @@
           }
         }
       }
+    },
+    "/versions" : {
+      "get" : {
+        "summary" : "Get list of versions of package in distributions and architectures listed",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Package, distribution and architecture",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/body_1"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of versions",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions" : {
@@ -377,6 +403,20 @@
           "items" : {
             "type" : "string"
           }
+        }
+      }
+    },
+    "body_1" : {
+      "type" : "object",
+      "properties" : {
+        "package" : {
+          "type" : "string"
+        },
+        "distribution" : {
+          "type" : "string"
+        },
+        "architecture" : {
+          "type" : "string"
         }
       }
     },
