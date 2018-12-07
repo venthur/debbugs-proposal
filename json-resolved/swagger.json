@@ -37,8 +37,19 @@
   "paths" : {
     "/status" : {
       "get" : {
-        "tags" : [ "bug" ],
-        "parameters" : [ ]
+        "summary" : "Get status of given bugs",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "List of bug numbers",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer"
+            }
+          }
+        } ]
       }
     },
     "/pet" : {
