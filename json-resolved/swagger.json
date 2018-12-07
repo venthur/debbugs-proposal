@@ -123,6 +123,26 @@
           }
         }
       }
+    },
+    "/buglog/{bugnumber}" : {
+      "get" : {
+        "summary" : "Get the whole bug log",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "bugnumber",
+          "in" : "path",
+          "description" : "the bugnumber",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "the the whole bug log",
+            "schema" : {
+              "$ref" : "#/definitions/Buglog"
+            }
+          }
+        }
+      }
     }
   },
   "definitions" : {
@@ -337,6 +357,13 @@
       "description" : "Bug severity",
       "enum" : [ "critical", "grave", "serious", "important", "normal", "minor", "wishlist" ]
     },
+    "Buglog" : {
+      "type" : "array",
+      "description" : "The whole bug log",
+      "items" : {
+        "$ref" : "#/definitions/Buglog_inner"
+      }
+    },
     "body" : {
       "type" : "object",
       "properties" : {
@@ -350,6 +377,18 @@
           "items" : {
             "type" : "string"
           }
+        }
+      }
+    },
+    "Buglog_inner" : {
+      "properties" : {
+        "header" : {
+          "type" : "string",
+          "description" : "the smtp headers"
+        },
+        "body" : {
+          "type" : "string",
+          "description" : "the email body"
         }
       }
     }
