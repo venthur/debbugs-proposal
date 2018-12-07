@@ -7,5 +7,8 @@ that are able to parse SOAP properly. SOAP is also very hard to debug. Since
 [proposed][proposal] to move away from SOAP towards something more modern like
 JSON.
 
+You can browse the current API proposal [here][swaggerhub].
+
 [python-debianbts]: https://github.com/venthur/python-debianbts
 [proposal]: https://lists.debian.org/debian-debbugs/2018/12/msg00000.html
+[swaggerhub]: https://app.swaggerhub.com/apis-docs/venthur/debbugs/
