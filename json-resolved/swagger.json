@@ -89,13 +89,63 @@
         "subject" : {
           "type" : "string",
           "description" : "subject/title of the bugreport"
+        },
+        "originator" : {
+          "type" : "string",
+          "description" : "submitter of the bugreport"
+        },
+        "mergedwith" : {
+          "type" : "array",
+          "description" : "this bug was merged with",
+          "items" : {
+            "type" : "integer"
+          }
+        },
+        "package" : {
+          "type" : "string",
+          "description" : "package of the bugreport"
+        },
+        "source" : {
+          "type" : "string",
+          "description" : "source package of the bugreport"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "date of bug creation"
+        },
+        "log_modified" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "date of last update"
+        },
+        "done" : {
+          "type" : "string",
+          "description" : "maintainer who closed the string"
+        },
+        "archived" : {
+          "type" : "boolean",
+          "description" : "the bug is archived"
+        },
+        "unarchived" : {
+          "type" : "boolean",
+          "description" : "the bug has been unarchived and can be archived again"
         }
       },
       "example" : {
         "severity" : "critical",
-        "bug_number" : 0,
+        "date" : "2000-01-23T04:56:07.000+00:00",
+        "package" : "package",
         "subject" : "subject",
-        "tags" : [ "tags", "tags" ]
+        "originator" : "originator",
+        "source" : "source",
+        "mergedwith" : [ 6, 6 ],
+        "done" : "done",
+        "tags" : [ "tags", "tags" ],
+        "unarchived" : true,
+        "bug_number" : 0,
+        "archived" : true,
+        "log_modified" : "2000-01-23T04:56:07.000+00:00"
       }
     },
     "Order" : {
