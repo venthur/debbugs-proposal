@@ -82,7 +82,7 @@
         "parameters" : [ {
           "in" : "body",
           "name" : "body",
-          "description" : "???",
+          "description" : "Filter condition for usertags",
           "required" : true,
           "schema" : {
             "$ref" : "#/definitions/body"
