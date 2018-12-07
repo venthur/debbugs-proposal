@@ -35,6 +35,12 @@
   } ],
   "schemes" : [ "https", "http" ],
   "paths" : {
+    "/status" : {
+      "get" : {
+        "tags" : [ "bug" ],
+        "parameters" : [ ]
+      }
+    },
     "/pet" : {
       "post" : {
         "tags" : [ "pet" ],
