@@ -64,6 +64,33 @@
           }
         }
       }
+    },
+    "/bugs" : {
+      "get" : {
+        "summary" : "Get bugs that match the conditions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "filter conditions",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Conditions"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of bugnumbers",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions" : {
@@ -75,9 +102,7 @@
           "description" : "the bug number"
         },
         "severity" : {
-          "type" : "string",
-          "description" : "severity of the bug",
-          "enum" : [ "critical", "grave", "serious", "important", "normal", "minor", "wishlist" ]
+          "$ref" : "#/definitions/Severity"
         },
         "tags" : {
           "type" : "array",
@@ -190,12 +215,12 @@
         },
         "summary" : {
           "type" : "string",
-          "description" : "null"
+          "description" : "arbitrary text"
         }
       },
       "description" : "Status of a bugreport",
       "example" : {
-        "severity" : "critical",
+        "severity" : { },
         "date" : "2000-01-23T04:56:07.000+00:00",
         "owner" : "owner",
         "summary" : "summary",
@@ -220,6 +245,52 @@
         "location" : "db-h",
         "found_versions" : [ "found_versions", "found_versions" ]
       }
+    },
+    "Conditions" : {
+      "type" : "object",
+      "properties" : {
+        "package" : {
+          "type" : "string"
+        },
+        "submitter" : {
+          "type" : "string"
+        },
+        "maint" : {
+          "type" : "string"
+        },
+        "src" : {
+          "type" : "string"
+        },
+        "severity" : {
+          "$ref" : "#/definitions/Severity"
+        },
+        "status" : {
+          "type" : "string",
+          "enum" : [ "open", "done", "forwarded" ]
+        },
+        "tag" : {
+          "type" : "string"
+        },
+        "owner" : {
+          "type" : "string"
+        }
+      },
+      "description" : "Filter conditions",
+      "example" : {
+        "severity" : { },
+        "owner" : "owner",
+        "submitter" : "submitter",
+        "package" : "package",
+        "src" : "src",
+        "maint" : "maint",
+        "tag" : "tag",
+        "status" : "open"
+      }
+    },
+    "Severity" : {
+      "type" : "string",
+      "description" : "Bug severity",
+      "enum" : [ "critical", "grave", "serious", "important", "normal", "minor", "wishlist" ]
     }
   },
   "externalDocs" : {
